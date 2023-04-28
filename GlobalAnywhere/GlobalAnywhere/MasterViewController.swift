@@ -24,7 +24,7 @@ class MasterViewController: UITableViewController {
                                               name: NSNotification.Name(rawValue: "decodedDataReceived"),
                                               object: nil)
         
-        NetworkTraffic().gatherData(withSimpsons: true)
+        NetworkTraffic.shared.gatherData(withSimpsons: true)
     }
 
 //    override var numberOfSections: Int {
@@ -48,6 +48,16 @@ class MasterViewController: UITableViewController {
             cell.setupErrorCell()
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc: DetailViewController = DetailViewController()
+        let detailView: DetailView = DetailView()
+        if let modelData = self.dataModel {
+            detailView.dataModel = modelData[indexPath.row]
+            vc.view = detailView
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func configureData(_ notification: NSNotification) {
