@@ -30,9 +30,9 @@ class NetworkTraffic: NSObject {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 let decoder = JSONDecoder()
-                if let launches = try! decoder.decode([DataModel]?.self, from: data) {
-                    print("Valid response for data received and decoded.")
-                    self.decodedData = launches
+                if let topLevelData = try! decoder.decode(TopLevelData?.self, from: data) {
+                    self.decodedData = topLevelData.RelatedTopics
+                    print("Valid response for name data received and decoded.")
 //                    DispatchQueue.main.async {
 //                        print("GCD group leaving")
 //                        self.group.leave()   // <<----
@@ -43,6 +43,12 @@ class NetworkTraffic: NSObject {
             } else if let error = error {
                 print("HTTP Request Failed \(error)")
             }
+            let passData:[String: [DataModel]?] = ["decodedData": self.decodedData]
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "decodedDataReceived"),
+                                                object: nil,
+                                                userInfo: passData as [AnyHashable : Any])
+            }
         }
         task.resume()
 
@@ -51,18 +57,20 @@ class NetworkTraffic: NSObject {
     func gatherImageData(withImageView: UIImageView,
                          withFirstURL: String,
                          withIconURL: String) {
-        var requestString: URL = URL(string: withFirstURL + withIconURL)!
+        let requestString: URL = URL(string: withFirstURL + withIconURL)!
         var request = URLRequest(url: requestString)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                if let image = UIImage(data: data){
-                    withImageView.image = image
-                    print("Valid response for image data received and decoded.")
-                } else {
-                    withImageView.image = GlobalVariables.noImageIcon
-                    print("Image data is unavailable from server.")
+                DispatchQueue.main.async {
+                    if let image = UIImage(data: data){
+                        withImageView.image = image
+                        print("Valid response for image data received and decoded.")
+                    } else {
+                        withImageView.image = GlobalVariables.noImageIcon
+                        print("Image data is unavailable from server.")
+                    }
                 }
 //                DispatchQueue.main.async {
 //                    print("GCD group leaving")

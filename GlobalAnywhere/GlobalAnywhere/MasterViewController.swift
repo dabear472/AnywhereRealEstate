@@ -7,19 +7,54 @@
 
 import UIKit
 
-class MasterViewController: UITableView, UITableViewDelegate, UITableViewDataSource {
+class MasterViewController: UITableViewController {
 
+    @IBOutlet weak var tableViewOutlet: UITableView!
+    
+    var dataModel: [DataModel]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        self.tableViewOutlet.delegate = self
+        self.tableViewOutlet.dataSource = self
+
+        NotificationCenter.default.addObserver(self,
+                                              selector: #selector(self.configureData(_:)),
+                                              name: NSNotification.Name(rawValue: "decodedDataReceived"),
+                                              object: nil)
+        
+        NetworkTraffic().gatherData(withSimpsons: true)
     }
 
-    override var numberOfSections: Int {
-        return 1
+//    override var numberOfSections: Int {
+//        return 1
+//    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let dataHold = self.dataModel {
+            return dataHold.count
+        } else {
+            return 1
+        }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "masterViewCell") as! MasterViewCell
+        if let modelData = self.dataModel {
+            cell.dataModel = modelData[indexPath.row]
+            cell.setupView()
+        } else {
+            cell.setupErrorCell()
+        }
+        return cell
+    }
+    
+    @objc private func configureData(_ notification: NSNotification) {
+        if let passData = notification.userInfo?["decodedData"] as? [DataModel] {
+            self.dataModel = passData
+            self.tableViewOutlet.reloadData()
+        }
     }
 }
 

@@ -13,6 +13,10 @@ struct DataModel: Codable {
     let Text: String
 }
 
+struct TopLevelData: Codable {
+    let RelatedTopics: [DataModel]
+}
+
 struct IconData: Codable {
     let URL: String
 }

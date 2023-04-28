@@ -19,6 +19,7 @@
 		2C506EF629FB061B00105F7E /* NetworkTraffic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506EF529FB061B00105F7E /* NetworkTraffic.swift */; };
 		2C506EF829FB09E100105F7E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506EF729FB09E100105F7E /* DataModel.swift */; };
 		2C506EFA29FB10FD00105F7E /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506EF929FB10FC00105F7E /* GlobalVariables.swift */; };
+		2C506EFC29FB7B0C00105F7E /* MasterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506EFB29FB7B0C00105F7E /* MasterViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		2C506EF529FB061B00105F7E /* NetworkTraffic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTraffic.swift; sourceTree = "<group>"; };
 		2C506EF729FB09E100105F7E /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		2C506EF929FB10FC00105F7E /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		2C506EFB29FB7B0C00105F7E /* MasterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				2C506EC529FB041300105F7E /* AppDelegate.swift */,
 				2C506EC729FB041300105F7E /* SceneDelegate.swift */,
 				2C506EC929FB041300105F7E /* MasterViewController.swift */,
+				2C506EFB29FB7B0C00105F7E /* MasterViewCell.swift */,
 				2C506ECB29FB041300105F7E /* Main.storyboard */,
 				2C506ECE29FB041600105F7E /* Assets.xcassets */,
 				2C506ED029FB041600105F7E /* LaunchScreen.storyboard */,
@@ -269,6 +272,7 @@
 			files = (
 				2C506EFA29FB10FD00105F7E /* GlobalVariables.swift in Sources */,
 				2C506EF829FB09E100105F7E /* DataModel.swift in Sources */,
+				2C506EFC29FB7B0C00105F7E /* MasterViewCell.swift in Sources */,
 				2C506EF629FB061B00105F7E /* NetworkTraffic.swift in Sources */,
 				2C506ECA29FB041300105F7E /* MasterViewController.swift in Sources */,
 				2C506EC629FB041300105F7E /* AppDelegate.swift in Sources */,
