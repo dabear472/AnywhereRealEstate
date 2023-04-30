@@ -33,6 +33,6 @@ class MasterViewCell: UITableViewCell {
     }
     
     func setupErrorCell() {
-        self.nameLabel.text = "Name Unavailable"
+        self.nameLabel.text = "Value Unavailable"
     }
 }

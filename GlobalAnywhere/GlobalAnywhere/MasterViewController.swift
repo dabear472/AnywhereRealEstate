@@ -7,17 +7,27 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, UINavigationControllerDelegate {
+class MasterViewController: UIViewController,
+                                UINavigationControllerDelegate,
+                                UITableViewDelegate,
+                                UITableViewDataSource,
+                                UISearchBarDelegate,
+                                UISearchResultsUpdating,
+                                UISearchControllerDelegate {
 
     @IBOutlet weak var tableViewOutlet: UITableView!
     
+    let searchController = UISearchController()
     var dataModel: [FirstCallDataModel]?
-    
+    var filteredDataModel: [FirstCallDataModel]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableViewOutlet.delegate = self
         self.tableViewOutlet.dataSource = self
+        
+        self.navigationController?.delegate = self
 
         NotificationCenter.default.addObserver(self,
                                               selector: #selector(self.configureData(_:)),
@@ -25,36 +35,93 @@ class MasterViewController: UITableViewController, UINavigationControllerDelegat
                                               object: nil)
         
         NetworkTraffic.shared.gatherData(withSimpsons: true)
+        
+        initSearchController()
+    }
+    
+    func initSearchController() {
+        self.searchController.loadViewIfNeeded()
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.enablesReturnKeyAutomatically = false
+        self.searchController.searchBar.returnKeyType = UIReturnKeyType.go
+        definesPresentationContext = true
+        
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        self.searchController.delegate = self
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let dataHold = self.dataModel {
+            if searchController.isActive {
+                if let filteredData = filteredDataModel {
+                    return filteredData.count
+                } else {
+                    return 1
+                }
+            }
             return dataHold.count
         } else {
             return 1
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "masterViewCell") as! MasterViewCell
-        if let modelData = self.dataModel {
-            cell.dataModel = modelData[indexPath.row]
-            cell.setupView()
+        if searchController.isActive {
+            if let filteredData = self.filteredDataModel {
+                cell.dataModel = filteredData[indexPath.row]
+            } else {
+                cell.setupErrorCell()
+            }
         } else {
-            cell.setupErrorCell()
+            if let modelData = self.dataModel {
+                cell.dataModel = modelData[indexPath.row]
+            } else {
+                cell.setupErrorCell()
+            }
         }
+        cell.setupView()
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let modelData = self.dataModel {
-            GlobalVariables.shared.dataModel = modelData[indexPath.row]
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if searchController.isActive {
+            if let filteredData = self.filteredDataModel {
+                GlobalVariables.shared.dataModel = filteredData[indexPath.row]
+            }
+        } else {
+            if let modelData = self.dataModel {
+                GlobalVariables.shared.dataModel = modelData[indexPath.row]
+            }
         }
         let storyBoard : UIStoryboard = UIStoryboard(name: "GlobalMainStoryboard", bundle:nil)
         let resultViewController = storyBoard.instantiateViewController(withIdentifier: "detailView") as! DetailViewController
-        self.navigationController?.delegate = self
         self.navigationController?.pushViewController(resultViewController, animated: true)
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let searchText = searchBar.text!
+        
+        filterForSearchText(withSearchText: searchText)
+    }
+    
+    func filterForSearchText(withSearchText: String) {
+        filteredDataModel = dataModel?.filter() {
+            filteredData in
+            if searchController.searchBar.text != "" {
+                let searchTextMatch = filteredData.Text.lowercased().contains(withSearchText.lowercased())
+                
+                return searchTextMatch
+            } else {
+                return false
+            }
+        }
+        tableViewOutlet.reloadData()
+    }
+
     
     @objc private func configureData(_ notification: NSNotification) {
         if let passData = notification.userInfo?["decodedData"] as? [FirstCallDataModel] {
