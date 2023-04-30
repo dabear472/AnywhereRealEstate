@@ -11,7 +11,7 @@ class MasterViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
 
-    var dataModel: DataModel?
+    var dataModel: FirstCallDataModel?
 
     override func awakeFromNib() {
         super.awakeFromNib()

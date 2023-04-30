@@ -9,7 +9,8 @@ import UIKit
 import Foundation
 
 class NetworkTraffic: NSObject {
-    var decodedData:[DataModel]?
+    var decodedData:[FirstCallDataModel]?
+    var imageSrc: String?
     let group = DispatchGroup()
 
     static let shared = NetworkTraffic()
@@ -30,20 +31,16 @@ class NetworkTraffic: NSObject {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 let decoder = JSONDecoder()
-                if let topLevelData = try! decoder.decode(TopLevelData?.self, from: data) {
+                if let topLevelData = try! decoder.decode(FirstCallTopLevelData?.self, from: data) {
                     self.decodedData = topLevelData.RelatedTopics
                     print("Valid response for name data received and decoded.")
-//                    DispatchQueue.main.async {
-//                        print("GCD group leaving")
-//                        self.group.leave()   // <<----
-//                    }
                 } else {
                     print("Invalid response recieved for data.")
                 }
             } else if let error = error {
                 print("HTTP Request Failed \(error)")
             }
-            let passData:[String: [DataModel]?] = ["decodedData": self.decodedData]
+            let passData:[String: [FirstCallDataModel]?] = ["decodedData": self.decodedData]
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "decodedDataReceived"),
                                                 object: nil,
@@ -55,97 +52,63 @@ class NetworkTraffic: NSObject {
     }
 
     func gatherImageData(withImageView: UIImageView,
-                         withFirstURL: String,
-                         withIconURL: String) {
-        let requestString: URL = URL(string: withFirstURL + withIconURL)!
-        var request = URLRequest(url: requestString)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                DispatchQueue.main.async {
-                    if let image = UIImage(data: data){
-                        withImageView.image = image
+                         withQueryName: String) {
+        if let query = withQueryName.addingPercentEncoding(withAllowedCharacters: .allowedCharacters) {
+            let requestString = "https://customsearch.googleapis.com/customsearch/v1?key=AIzaSyCCwe1rNj4lILU2AbbiBE1ttz1BgNWL_O4&cx=748f591eb2c414397&q=\(query)&SearchType=%22image%22"
+            guard let requestURL = URL(string: requestString) else { return }
+            var request = URLRequest(url: requestURL)
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    if let topLevelData = try! decoder.decode(SecondCallTopLevelData?.self, from: data) {
                         print("Valid response for image data received and decoded.")
+                        var imageSrcAvailable: Bool = false
+                        for item in topLevelData.items {
+                            if let imageSrcCheck = item.pagemap.cse_thumbnail?[0].src {
+                                self.imageSrc = imageSrcCheck
+                                imageSrcAvailable = true
+                                print("Image source found")
+                                break
+                            } else {
+                                DispatchQueue.main.async {
+                                    withImageView.image = GlobalVariables.noImageIcon
+                                }
+                            }
+                        }
+                        if imageSrcAvailable {
+                            self.getImageNetworkCall(withImageView: withImageView)
+                        }
                     } else {
-                        withImageView.image = GlobalVariables.noImageIcon
-                        print("Image data is unavailable from server.")
+                        print("Invalid response recieved for image source data.")
                     }
+                } else if let error = error {
+                    print("HTTP Request Failed \(error)")
                 }
-//                DispatchQueue.main.async {
-//                    print("GCD group leaving")
-//                    self.group.leave()   // <<----
-//                }
-            } else if let error = error {
-                print("HTTP Request Failed \(error)")
             }
+            task.resume()
         }
-        task.resume()
 
     }
 
-//    func gatherSATStats() {
-//        let requestString = URL(string: GlobalVariables.networkSATUrl)!
-//        var request = URLRequest(url: requestString)
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let data = data {
-//                let decoder = JSONDecoder()
-//                if let decSATstats = try! decoder.decode([SATData]?.self, from: data) {
-//                    print("Valid response for SAT data received and decoded.")
-//                    self.decodedSATstats = decSATstats
-//                    DispatchQueue.main.async {
-//                        print("SAT GCD group")
-//                        self.group.leave()   // <<----
-//                    }
-//                } else {
-//                    print("Invalid response recieved for SAT data.")
-//                }
-//            } else if let error = error {
-//                print("HTTP Request (SAT) Failed \(error)")
-//            }
-//        }
-//        task.resume()
-//    }
-    
-//    func combineData() {
-//        if let decSchoolData = decodedSchoolData {
-//            if let decSATdata = decodedSATstats {
-//                for (index, _) in decSchoolData.enumerated() {
-//                    for satDatForSchool in decSATdata {
-//                        if decodedSchoolData![index].dbn == satDatForSchool.dbn {
-//                            decodedSchoolData![index].num_of_sat_test_takers = satDatForSchool.num_of_sat_test_takers
-//                            decodedSchoolData![index].sat_critical_reading_avg_score = satDatForSchool.sat_critical_reading_avg_score
-//                            decodedSchoolData![index].sat_math_avg_score = satDatForSchool.sat_math_avg_score
-//                            decodedSchoolData![index].sat_writing_avg_score = satDatForSchool.sat_writing_avg_score
-//                        }
-//                    }
-//                }
-//                DispatchQueue.main.async {
-//                    self.group.leave()   // <<----
-//                }
-//            }
-//        }
-//    }
-    
-//    func handleNetworkCalls() {
-//        group.enter()
-//        self.gatherData()
-//
-////        group.enter()
-////        self.gatherSATStats()
-//
-////        group.notify(queue: .main) {
-////            self.group.enter()
-////            self.combineData()
-//
-//        self.group.notify(queue: .main) {
-//            let passData:[String: [DataModel]?] = ["decodedData": self.decodedData]
-//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "decodedDataReceived"),
-//                                            object: nil,
-//                                            userInfo: passData as [AnyHashable : Any])
-//        }
-////        }
-//    }
+    func getImageNetworkCall(withImageView: UIImageView) {
+        if let imageSrcFound = self.imageSrc {
+            guard let requestImageURL = URL(string: imageSrcFound) else { return }
+            let request = URLRequest(url: requestImageURL)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        withImageView.image = UIImage(data: data)
+                    }
+                } else if let error = error {
+                    print("HTTP Request Failed \(error)")
+                }
+            }
+            task.resume()
+        }
+    }
+}
+
+extension CharacterSet {
+    static let allowedCharacters = urlQueryAllowed.subtracting(.init(charactersIn: "+ "))
 }

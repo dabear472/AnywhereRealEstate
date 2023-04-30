@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct DataModel: Codable {
+struct FirstCallDataModel: Codable {
     
     // MARK: - Properties
     
@@ -13,10 +13,26 @@ struct DataModel: Codable {
     let Text: String
 }
 
-struct TopLevelData: Codable {
-    let RelatedTopics: [DataModel]
+struct FirstCallTopLevelData: Codable {
+    let RelatedTopics: [FirstCallDataModel]
 }
 
 struct IconData: Codable {
     let URL: String
+}
+
+struct SecondCallTopLevelData: Codable {
+    let items: [SecondCallSecondLevelData]
+}
+
+struct SecondCallSecondLevelData: Codable {
+    let pagemap: SecondCallThirdLevelData
+}
+
+struct SecondCallThirdLevelData: Codable {
+    let cse_thumbnail: [SecondCallFourthLevelData]?
+}
+
+struct SecondCallFourthLevelData: Codable {
+    let src: String?
 }

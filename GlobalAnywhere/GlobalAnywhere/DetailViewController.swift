@@ -11,10 +11,14 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        (self.view as! DetailView).setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
+    override func viewWillLayoutSubviews() {
+    }
 
     /*
     // MARK: - Navigation

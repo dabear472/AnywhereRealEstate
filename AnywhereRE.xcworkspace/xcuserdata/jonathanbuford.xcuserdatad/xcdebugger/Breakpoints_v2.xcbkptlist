@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "796C7602-2A7B-4686-B8E5-9E47BE1712D2"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEB88FB2-99E4-4C65-BBFE-9D3F33C2E7E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GlobalAnywhere/GlobalAnywhere/NetworkTraffic.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "gatherImageData(withImageView:withQueryName:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FEB88FB2-99E4-4C65-BBFE-9D3F33C2E7E8 - b46e59afe82c8ad4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GlobalAnywhere.NetworkTraffic.gatherImageData(withImageView: __C.UIImageView, withQueryName: Swift.String) -&gt; ()"
+                  moduleName = "GlobalAnywhere"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathanbuford/Library/CloudStorage/OneDrive-WaldenUniversity/BearCave/iOS%20Coding%20Challenges/Anywhere%20Real%20Estate/AnywhereRealEstate/GlobalAnywhere/GlobalAnywhere/NetworkTraffic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "1054">
+               </Location>
+               <Location
+                  uuid = "FEB88FB2-99E4-4C65-BBFE-9D3F33C2E7E8 - b46e59afe82c8ad4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GlobalAnywhere.NetworkTraffic.gatherImageData(withImageView: __C.UIImageView, withQueryName: Swift.String) -&gt; ()"
+                  moduleName = "GlobalAnywhere"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathanbuford/Library/CloudStorage/OneDrive-WaldenUniversity/BearCave/iOS%20Coding%20Challenges/Anywhere%20Real%20Estate/AnywhereRealEstate/GlobalAnywhere/GlobalAnywhere/NetworkTraffic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "1132">
+               </Location>
+               <Location
+                  uuid = "FEB88FB2-99E4-4C65-BBFE-9D3F33C2E7E8 - b46e59afe82c8ad4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GlobalAnywhere.NetworkTraffic.gatherImageData(withImageView: __C.UIImageView, withQueryName: Swift.String) -&gt; ()"
+                  moduleName = "GlobalAnywhere"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathanbuford/Library/CloudStorage/OneDrive-WaldenUniversity/BearCave/iOS%20Coding%20Challenges/Anywhere%20Real%20Estate/AnywhereRealEstate/GlobalAnywhere/GlobalAnywhere/NetworkTraffic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "1851">
+               </Location>
+               <Location
+                  uuid = "FEB88FB2-99E4-4C65-BBFE-9D3F33C2E7E8 - b46e59afe82c8ad4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GlobalAnywhere.NetworkTraffic.gatherImageData(withImageView: __C.UIImageView, withQueryName: Swift.String) -&gt; ()"
+                  moduleName = "GlobalAnywhere"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathanbuford/Library/CloudStorage/OneDrive-WaldenUniversity/BearCave/iOS%20Coding%20Challenges/Anywhere%20Real%20Estate/AnywhereRealEstate/GlobalAnywhere/GlobalAnywhere/NetworkTraffic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "890">
+               </Location>
+               <Location
+                  uuid = "FEB88FB2-99E4-4C65-BBFE-9D3F33C2E7E8 - b46e59afe82c8ad4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GlobalAnywhere.NetworkTraffic.gatherImageData(withImageView: __C.UIImageView, withQueryName: Swift.String) -&gt; ()"
+                  moduleName = "GlobalAnywhere"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathanbuford/Library/CloudStorage/OneDrive-WaldenUniversity/BearCave/iOS%20Coding%20Challenges/Anywhere%20Real%20Estate/AnywhereRealEstate/GlobalAnywhere/GlobalAnywhere/NetworkTraffic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "968">
+               </Location>
+               <Location
+                  uuid = "FEB88FB2-99E4-4C65-BBFE-9D3F33C2E7E8 - b46e59afe82c8ad4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GlobalAnywhere.NetworkTraffic.gatherImageData(withImageView: __C.UIImageView, withQueryName: Swift.String) -&gt; ()"
+                  moduleName = "GlobalAnywhere"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathanbuford/Library/CloudStorage/OneDrive-WaldenUniversity/BearCave/iOS%20Coding%20Challenges/Anywhere%20Real%20Estate/AnywhereRealEstate/GlobalAnywhere/GlobalAnywhere/NetworkTraffic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "1687">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

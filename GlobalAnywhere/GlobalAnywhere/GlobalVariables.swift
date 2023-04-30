@@ -14,7 +14,8 @@ class GlobalVariables: NSObject {
     /// I know this is safe to be treated as explicit as is a system symbol
     /// and it will always return an image.
 
-    
+    var dataModel: FirstCallDataModel?
+
     static let shared = GlobalVariables()
     
     override init(){}

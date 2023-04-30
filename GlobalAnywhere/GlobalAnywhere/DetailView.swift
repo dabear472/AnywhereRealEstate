@@ -12,9 +12,7 @@ class DetailView: UIView {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var characterTextLabel: UILabel!
-
-    var dataModel: DataModel?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -23,13 +21,29 @@ class DetailView: UIView {
         super.init(coder: aDecoder)
     }
 
-    init() {
-        super.init(frame: CGRect(x: 0, y: 0,
-                                 width: UIScreen.main.bounds.width,
-                                 height: UIScreen.main.bounds.height))
-    }
-
     func setupView() {
-        let modelData = self.dataModel
+        if let modelData = GlobalVariables.shared.dataModel {
+            let nameParts = modelData.Text.components(separatedBy: " - ")
+            
+            if let characterName = nameParts.first {
+                self.nameLabel.text = nameParts.first
+                NetworkTraffic.shared.gatherImageData(withImageView: self.characterImage,
+                                                      withQueryName: characterName)
+            } else {
+                print("Unable to parse out character name")
+                setupErrorView()
+            }
+            
+            self.characterTextLabel.isHidden = false
+            self.characterTextLabel.text = modelData.Text
+        } else {
+            self.setupErrorView()
+        }
+    }
+    
+    func setupErrorView() {
+        characterTextLabel.isHidden = true
+        characterImage.image = GlobalVariables.noImageIcon
+        nameLabel.text = "Data is Unavailable"
     }
 }

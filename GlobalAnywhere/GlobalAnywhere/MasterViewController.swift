@@ -7,11 +7,11 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var tableViewOutlet: UITableView!
     
-    var dataModel: [DataModel]?
+    var dataModel: [FirstCallDataModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,6 @@ class MasterViewController: UITableViewController {
         NetworkTraffic.shared.gatherData(withSimpsons: true)
     }
 
-//    override var numberOfSections: Int {
-//        return 1
-//    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let dataHold = self.dataModel {
             return dataHold.count
@@ -51,17 +47,17 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc: DetailViewController = DetailViewController()
-        let detailView: DetailView = DetailView()
         if let modelData = self.dataModel {
-            detailView.dataModel = modelData[indexPath.row]
-            vc.view = detailView
+            GlobalVariables.shared.dataModel = modelData[indexPath.row]
         }
-        self.navigationController?.pushViewController(vc, animated: true)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "GlobalMainStoryboard", bundle:nil)
+        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "detailView") as! DetailViewController
+        self.navigationController?.delegate = self
+        self.navigationController?.pushViewController(resultViewController, animated: true)
     }
     
     @objc private func configureData(_ notification: NSNotification) {
-        if let passData = notification.userInfo?["decodedData"] as? [DataModel] {
+        if let passData = notification.userInfo?["decodedData"] as? [FirstCallDataModel] {
             self.dataModel = passData
             self.tableViewOutlet.reloadData()
         }
