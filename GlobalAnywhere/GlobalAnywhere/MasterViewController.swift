@@ -58,6 +58,7 @@ class MasterViewController: UITableViewController, UINavigationControllerDelegat
     
     @objc private func configureData(_ notification: NSNotification) {
         if let passData = notification.userInfo?["decodedData"] as? [FirstCallDataModel] {
+            self.title = "Character Names"
             self.dataModel = passData
             self.tableViewOutlet.reloadData()
         }
