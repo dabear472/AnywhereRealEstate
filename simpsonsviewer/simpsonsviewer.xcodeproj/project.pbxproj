@@ -16,6 +16,8 @@
 		2C506E6529FB037E00105F7E /* simpsonsviewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506E6429FB037E00105F7E /* simpsonsviewerTests.swift */; };
 		2C506E6F29FB037E00105F7E /* simpsonsviewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506E6E29FB037E00105F7E /* simpsonsviewerUITests.swift */; };
 		2C506E7129FB037E00105F7E /* simpsonsviewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506E7029FB037E00105F7E /* simpsonsviewerUITestsLaunchTests.swift */; };
+		2CEC89B92A012CE8000D9F8D /* GlobalAnywhereFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEC89B82A012CE8000D9F8D /* GlobalAnywhereFramework.framework */; };
+		2CEC89BA2A012CE8000D9F8D /* GlobalAnywhereFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEC89B82A012CE8000D9F8D /* GlobalAnywhereFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2CEC89BB2A012CE8000D9F8D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2CEC89BA2A012CE8000D9F8D /* GlobalAnywhereFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2C506E4A29FB037700105F7E /* simpsonsviewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simpsonsviewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C506E4D29FB037700105F7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +65,7 @@
 		2C506E6A29FB037E00105F7E /* simpsonsviewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = simpsonsviewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C506E6E29FB037E00105F7E /* simpsonsviewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simpsonsviewerUITests.swift; sourceTree = "<group>"; };
 		2C506E7029FB037E00105F7E /* simpsonsviewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simpsonsviewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2CEC89B82A012CE8000D9F8D /* GlobalAnywhereFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GlobalAnywhereFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CEC89B92A012CE8000D9F8D /* GlobalAnywhereFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +101,7 @@
 				2C506E6329FB037E00105F7E /* simpsonsviewerTests */,
 				2C506E6D29FB037E00105F7E /* simpsonsviewerUITests */,
 				2C506E4B29FB037700105F7E /* Products */,
+				2CEC89B72A012CE8000D9F8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +146,14 @@
 			path = simpsonsviewerUITests;
 			sourceTree = "<group>";
 		};
+		2CEC89B72A012CE8000D9F8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CEC89B82A012CE8000D9F8D /* GlobalAnywhereFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +164,7 @@
 				2C506E4629FB037700105F7E /* Sources */,
 				2C506E4729FB037700105F7E /* Frameworks */,
 				2C506E4829FB037700105F7E /* Resources */,
+				2CEC89BB2A012CE8000D9F8D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -15,6 +15,7 @@ class GlobalVariables: NSObject {
     /// and it will always return an image.
 
     var dataModel: FirstCallDataModel?
+    var forSimpsons: Bool = true
 
     static let shared = GlobalVariables()
     

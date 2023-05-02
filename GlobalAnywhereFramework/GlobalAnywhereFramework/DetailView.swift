@@ -45,6 +45,6 @@ class DetailView: UIView {
     func setupErrorView() {
         characterTextLabel.isHidden = true
         characterImage.image = GlobalVariables.noImageIcon
-        nameLabel.text = "Data is Unavailable"
+        nameLabel.text = "Please press back button."
     }
 }

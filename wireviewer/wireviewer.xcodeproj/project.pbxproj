@@ -16,6 +16,8 @@
 		2C506EA129FB03C100105F7E /* wireviewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506EA029FB03C100105F7E /* wireviewerTests.swift */; };
 		2C506EAB29FB03C100105F7E /* wireviewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506EAA29FB03C100105F7E /* wireviewerUITests.swift */; };
 		2C506EAD29FB03C100105F7E /* wireviewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506EAC29FB03C100105F7E /* wireviewerUITestsLaunchTests.swift */; };
+		2CEC89B42A012CBC000D9F8D /* GlobalAnywhereFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEC89B32A012CBC000D9F8D /* GlobalAnywhereFramework.framework */; };
+		2CEC89B52A012CBC000D9F8D /* GlobalAnywhereFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEC89B32A012CBC000D9F8D /* GlobalAnywhereFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2CEC89B62A012CBC000D9F8D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2CEC89B52A012CBC000D9F8D /* GlobalAnywhereFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2C506E8629FB03BE00105F7E /* wireviewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wireviewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C506E8929FB03BE00105F7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +65,7 @@
 		2C506EA629FB03C100105F7E /* wireviewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wireviewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C506EAA29FB03C100105F7E /* wireviewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wireviewerUITests.swift; sourceTree = "<group>"; };
 		2C506EAC29FB03C100105F7E /* wireviewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wireviewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2CEC89B32A012CBC000D9F8D /* GlobalAnywhereFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GlobalAnywhereFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CEC89B42A012CBC000D9F8D /* GlobalAnywhereFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +101,7 @@
 				2C506E9F29FB03C100105F7E /* wireviewerTests */,
 				2C506EA929FB03C100105F7E /* wireviewerUITests */,
 				2C506E8729FB03BE00105F7E /* Products */,
+				2CEC89B22A012CBC000D9F8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +146,14 @@
 			path = wireviewerUITests;
 			sourceTree = "<group>";
 		};
+		2CEC89B22A012CBC000D9F8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CEC89B32A012CBC000D9F8D /* GlobalAnywhereFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +164,7 @@
 				2C506E8229FB03BE00105F7E /* Sources */,
 				2C506E8329FB03BE00105F7E /* Frameworks */,
 				2C506E8429FB03BE00105F7E /* Resources */,
+				2CEC89B62A012CBC000D9F8D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

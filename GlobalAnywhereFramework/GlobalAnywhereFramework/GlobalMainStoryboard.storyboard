@@ -166,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="-394" y="698"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Global Split View Controller-->
         <scene sceneID="O8V-RE-0uE">
             <objects>
-                <splitViewController allowDoubleColumnStyle="YES" behavior="overlay" primaryBackgroundStyle="sidebar" id="bZ3-t5-Ow5" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="globalSplitViewController" allowDoubleColumnStyle="YES" behavior="overlay" primaryBackgroundStyle="sidebar" id="bZ3-t5-Ow5" customClass="GlobalSplitViewController" customModule="GlobalAnywhere" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="nni-E2-VoB" kind="relationship" relationship="masterViewController" id="Crx-AU-2dd"/>
                         <segue destination="33B-I5-CfI" kind="relationship" relationship="detailViewController" id="cUY-Fi-Fn6"/>

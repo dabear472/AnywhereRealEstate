@@ -6,14 +6,25 @@
 //
 
 import UIKit
+import GlobalAnywhereFramework
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let s = UIStoryboard (name: "GlobalMainStoryboard", bundle: Bundle(for: GlobalSplitViewController.self))
+        let vc = s.instantiateInitialViewController() as! GlobalSplitViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.forSimpsons = true
+        self.present(vc, animated: true, completion: nil)
+
+    }
 
 }
 

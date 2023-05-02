@@ -1,14 +1,14 @@
 //
-//  GlobalAnywhereTests.swift
-//  GlobalAnywhereTests
+//  GlobalAnywhereFrameworkTests.swift
+//  GlobalAnywhereFrameworkTests
 //
-//  Created by Jonathan Buford on 4/27/23.
+//  Created by Jonathan Buford on 5/2/23.
 //
 
 import XCTest
-@testable import GlobalAnywhere
+@testable import GlobalAnywhereFramework
 
-final class GlobalAnywhereTests: XCTestCase {
+final class GlobalAnywhereFrameworkTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

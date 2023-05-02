@@ -34,7 +34,7 @@ class MasterViewController: UIViewController,
                                               name: NSNotification.Name(rawValue: "decodedDataReceived"),
                                               object: nil)
         
-        NetworkTraffic.shared.gatherData(withSimpsons: true)
+        NetworkTraffic.shared.gatherData(withSimpsons: GlobalVariables.shared.forSimpsons)
         
         initSearchController()
     }
@@ -96,9 +96,12 @@ class MasterViewController: UIViewController,
                 GlobalVariables.shared.dataModel = modelData[indexPath.row]
             }
         }
-        let storyBoard : UIStoryboard = UIStoryboard(name: "GlobalMainStoryboard", bundle:nil)
+
+        let storyBoard = UIStoryboard (name: "GlobalMainStoryboard", bundle: Bundle(for: GlobalSplitViewController.self))
         let resultViewController = storyBoard.instantiateViewController(withIdentifier: "detailView") as! DetailViewController
         self.navigationController?.pushViewController(resultViewController, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
