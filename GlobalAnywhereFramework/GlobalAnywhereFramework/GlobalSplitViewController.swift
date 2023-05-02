@@ -15,6 +15,8 @@ public class GlobalSplitViewController: UISplitViewController {
         super.viewDidLoad()
 
         GlobalVariables.shared.forSimpsons = self.forSimpsons
+        GlobalVariables.shared.splitViewController = self
+        self.show(.primary)
     }
     
 }

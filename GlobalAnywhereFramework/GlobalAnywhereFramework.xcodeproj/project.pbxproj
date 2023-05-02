@@ -90,12 +90,12 @@
 			isa = PBXGroup;
 			children = (
 				2CEC89E12A014533000D9F8D /* GlobalMainStoryboard.storyboard */,
-				2CEC89E22A014534000D9F8D /* MasterViewController.swift */,
 				2CEC89D42A014504000D9F8D /* DataModel.swift */,
 				2CEC89D32A014503000D9F8D /* DetailView.swift */,
 				2CEC89D92A014506000D9F8D /* DetailViewController.swift */,
 				2CEC89D82A014506000D9F8D /* GlobalSplitViewController.swift */,
 				2CEC89D52A014505000D9F8D /* GlobalVariables.swift */,
+				2CEC89E22A014534000D9F8D /* MasterViewController.swift */,
 				2CEC89D62A014505000D9F8D /* MasterViewCell.swift */,
 				2CEC89D72A014505000D9F8D /* NetworkTraffic.swift */,
 				2CEC89862A0129F1000D9F8D /* GlobalAnywhereFramework.h */,

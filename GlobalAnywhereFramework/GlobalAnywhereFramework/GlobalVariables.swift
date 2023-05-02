@@ -16,6 +16,8 @@ class GlobalVariables: NSObject {
 
     var dataModel: FirstCallDataModel?
     var forSimpsons: Bool = true
+    
+    var splitViewController: GlobalSplitViewController = GlobalSplitViewController()
 
     static let shared = GlobalVariables()
     

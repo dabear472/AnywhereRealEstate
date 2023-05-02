@@ -7,6 +7,13 @@
 
 import UIKit
 
+enum UIUserInterfaceIdiom : Int {
+    case unspecified
+    
+    case phone // iPhone and iPod touch style UI
+    case pad   // iPad style UI (also includes macOS Catalyst)
+}
+
 class MasterViewController: UIViewController,
                                 UINavigationControllerDelegate,
                                 UITableViewDelegate,
@@ -97,11 +104,18 @@ class MasterViewController: UIViewController,
             }
         }
 
-        let storyBoard = UIStoryboard (name: "GlobalMainStoryboard", bundle: Bundle(for: GlobalSplitViewController.self))
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "detailView") as! DetailViewController
-        self.navigationController?.pushViewController(resultViewController, animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "characterSelected"),
+                                        object: nil,
+                                        userInfo: nil)
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            let storyBoard = UIStoryboard (name: "GlobalMainStoryboard", bundle: Bundle(for: GlobalSplitViewController.self))
+            let resultViewController = storyBoard.instantiateViewController(withIdentifier: "detailView") as! DetailViewController
+            self.navigationController?.pushViewController(resultViewController, animated: true)
+        }
         
         tableView.deselectRow(at: indexPath, animated: true)
+        GlobalVariables.shared.splitViewController.hide(.primary)
     }
     
     func updateSearchResults(for searchController: UISearchController) {

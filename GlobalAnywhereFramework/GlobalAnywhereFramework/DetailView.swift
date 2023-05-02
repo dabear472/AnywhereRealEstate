@@ -15,6 +15,12 @@ class DetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        NotificationCenter.default.addObserver(self,
+                                              selector: #selector(self.setupView),
+                                              name: NSNotification.Name(rawValue: "characterSelected"),
+                                              object: nil)
+
         setupView()
     }
 
@@ -22,7 +28,7 @@ class DetailView: UIView {
         super.init(coder: aDecoder)
     }
 
-    func setupView() {
+    @objc func setupView() {
         if let modelData = GlobalVariables.shared.dataModel {
             let nameParts = modelData.Text.components(separatedBy: " - ")
             
@@ -45,6 +51,6 @@ class DetailView: UIView {
     func setupErrorView() {
         characterTextLabel.isHidden = true
         characterImage.image = GlobalVariables.noImageIcon
-        nameLabel.text = "Please press back button."
+        nameLabel.text = "No selection made yet."
     }
 }

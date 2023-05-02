@@ -11,8 +11,6 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        (self.view as! DetailView).setupView()
-//        self.view.setu
     }
     
     override func viewWillAppear(_ animated: Bool) {
