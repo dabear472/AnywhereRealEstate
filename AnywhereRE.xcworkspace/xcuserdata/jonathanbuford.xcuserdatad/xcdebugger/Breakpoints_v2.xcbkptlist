@@ -3,4 +3,70 @@
    uuid = "796C7602-2A7B-4686-B8E5-9E47BE1712D2"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B36ABFF0-CBCB-4F35-9041-0EEBDEB9AF43"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GlobalAnywhere/GlobalAnywhere/MasterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "configureData(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B36ABFF0-CBCB-4F35-9041-0EEBDEB9AF43 - 65e48c2fb212f845"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GlobalAnywhere.MasterViewController.configureData(__C.NSNotification) -&gt; ()"
+                  moduleName = "GlobalAnywhere"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathanbuford/Library/CloudStorage/OneDrive-WaldenUniversity/BearCave/iOS%20Coding%20Challenges/Anywhere%20Real%20Estate/AnywhereRealEstate/GlobalAnywhere/GlobalAnywhere/MasterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "90">
+               </Location>
+               <Location
+                  uuid = "B36ABFF0-CBCB-4F35-9041-0EEBDEB9AF43 - 65e48c2fb212f845"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GlobalAnywhere.MasterViewController.configureData(__C.NSNotification) -&gt; ()"
+                  moduleName = "GlobalAnywhere"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonathanbuford/Library/CloudStorage/OneDrive-WaldenUniversity/BearCave/iOS%20Coding%20Challenges/Anywhere%20Real%20Estate/AnywhereRealEstate/GlobalAnywhere/GlobalAnywhere/MasterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "574">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AFD9BE75-F115-49D5-A83D-BB59B82BFED5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GlobalAnywhere/GlobalAnywhere/MasterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "configureData(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
