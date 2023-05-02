@@ -15,6 +15,7 @@ class DetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupView()
     }
 
     required init?(coder aDecoder: NSCoder) {
